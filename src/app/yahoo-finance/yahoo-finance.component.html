@@ -1,0 +1,37 @@
+<div class="container">
+  <div style="text-align: center;" class="mt-3">
+    <h2>Cotações Bolsa últimos 30 dias</h2>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Dia</th>
+        <th>Data</th>
+        <th>Valor</th>
+        <th>Variação D-1</th>
+        <th>Variação Data Início</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of cotacoes">
+        <td>{{ data.dia }}</td>
+        <td>{{ data.data }}</td>
+        <td>{{ data.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
+        <td>{{ data.variacaoD1 }}</td>
+        <td>{{ data.variacaoPrimeiraData }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <div class="chart-wrapper" class="mt-3">
+    <div style="text-align: center;">
+      <h2>Gráfico de cotações</h2>
+    </div>
+
+    <canvas #pieCanvas id="canvas"></canvas>
+  </div>
+
+
+</div>
+
